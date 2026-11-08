@@ -1,13 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { animate, style, transition, trigger } from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     selector: 'app-coming-soon',
     templateUrl: './coming-soon.component.html',
     styleUrls: ['./coming-soon.component.scss'],
-    imports: [BrowserAnimationsModule],
     changeDetection: ChangeDetectionStrategy.Eager,
     animations: [
         trigger('slideIn', [

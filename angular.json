@@ -28,7 +28,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirects",
               "src/robots.txt",
               "src/sitemap.xml",
               {
@@ -101,11 +100,11 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/_redirects"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"

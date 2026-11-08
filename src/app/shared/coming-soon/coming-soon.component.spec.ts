@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { ComingSoonComponent } from './coming-soon.component';
 
 describe('ComingSoonComponent', () => {
@@ -8,7 +9,8 @@ describe('ComingSoonComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ComingSoonComponent]
+      imports: [ComingSoonComponent],
+      providers: [provideNoopAnimations()]
     });
     fixture = TestBed.createComponent(ComingSoonComponent);
     component = fixture.componentInstance;
