@@ -5,6 +5,7 @@
 
 
 /dist
+/docs
 .vscode/
 /documentation
 .env.local
