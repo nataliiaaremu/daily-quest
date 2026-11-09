@@ -1,8 +1,11 @@
-@mixin heroSection($url) {
+@mixin heroSection($url, $avif: null) {
 
   /* Hero Section */
   .about-hero {
     background-image: url($url);
+    @if $avif {
+      background-image: image-set(url($avif) type("image/avif"), url($url) type("image/webp"));
+    }
     background-size: cover;
     background-position: center;
     height: 50vh;

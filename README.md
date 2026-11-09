@@ -1,27 +1,35 @@
-# DailyQuest
+# Acropolis Park website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+Angular site for https://acropolispark.com. Pages are prerendered to static HTML at build time and hosted on Netlify.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node 22 (see `.nvmrc`; Angular 22 needs 22.22.3 or newer). With nvm: `nvm install && nvm use`
+- pnpm 10 (`corepack enable` picks the version from `package.json`)
 
-## Code scaffolding
+## Everyday commands
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Command | What it does |
+| --- | --- |
+| `pnpm install` | Install dependencies |
+| `pnpm start` | Dev server at http://localhost:4200 |
+| `pnpm run test:ci` | Unit tests, headless Chrome (what CI runs) |
+| `pnpm run audit:ci` | Security audit of production dependencies |
+| `pnpm run build:ci` | Production build plus prerendering into `dist/daily-quest/browser` |
+| `pnpm run prod` | `build:ci` plus gzip; this is what Netlify runs |
 
-## Build
+## How a change reaches the live site
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Create a branch and open a pull request into `main`.
+2. **GitHub Actions** (`.github/workflows/ci.yml`) runs the audit, the tests and the production build. The pull request must be green.
+3. **Netlify** builds a preview URL for the pull request, so you can look at the change before merging.
+4. Merge into `main`. **Netlify** builds and publishes it to acropolispark.com automatically.
 
-## Running unit tests
+There is nothing to deploy by hand. Netlify settings (build command, Node version, redirects and security headers) live in `netlify.toml`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Where things are configured
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Hosting, headers, redirects: `netlify.toml`
+- Checks before merge: `.github/workflows/ci.yml`
+- Prerendered routes: `angular.json` (`prerender` target)
+- SEO: `src/sitemap.xml`, `src/robots.txt`, per-route titles in `src/app/pages/acropolis-routing.module.ts`

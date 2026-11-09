@@ -16,8 +16,20 @@
 			</div>
 			<div class="story-content">
 				<div class="story-image">
-					<img src="assets/images/PARK%20AERIAL%20VIEW0.png"
-					     alt="Acropolis Park Story">
+					<picture>
+						<source type="image/avif"
+						        sizes="(max-width: 768px) 100vw, 560px"
+						        srcset="assets/images/park-aerial-view-640.avif 640w, assets/images/park-aerial-view-1120.avif 1120w">
+						<source type="image/webp"
+						        sizes="(max-width: 768px) 100vw, 560px"
+						        srcset="assets/images/park-aerial-view-640.webp 640w, assets/images/park-aerial-view-1120.webp 1120w">
+						<img src="assets/images/park-aerial-view-1120.webp"
+						     width="1120"
+						     height="630"
+						     loading="lazy"
+						     decoding="async"
+						     alt="Acropolis Park Story">
+					</picture>
 				</div>
 				<div class="story-text">
 					<p>Acropolis Park was born from a vision to create a unique space that celebrates the beauty of Greek

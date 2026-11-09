@@ -41,7 +41,9 @@
     //background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/acropolis/hero.jpg');
     background-size: cover;
     background-position: center;
-    background-image: url("/assets/images/acropolis-home-hero.png");
+    // Tiny blurred preview (inline, ~370 bytes) shown instantly while the real photo downloads.
+    background-color: #816955;
+    background-image: url("data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAADwBQCdASogABIAPu1krE+ppSQiMBgIATAdiWQAnTLVPC/FhcnvbWj4viRjTIhU3bJJ+0mp7ic1QAD+lGc2wpFsjiaeeaXSvBoKi16Qvb86zhXIO93tS2TEv7+bTxCuMM/i8Hv1zzbQAZE2kZ35bU2/dpoD6cCOdRfVDYSPPQoy62ZIoIVcoHMSBZDF6ZMkOKvRm4luWz+b0a5g7L9nmdCl4+WzPH+BesT5LNVCJOtgdVscwnDrrqTxPjxQ+Y507M582Y6hG4rsrv0cs8fUMPMywnhoiE8oFAAaAA==");
     height: 95vh;
     display: flex;
     align-items: center;
@@ -52,6 +54,31 @@
     margin-top: -80px; // Offset the header padding
     position: relative;
     overflow: hidden;
+
+    .hero-picture {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+
+      &.loaded {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-image {
+        transition: none;
+      }
+    }
 
     &::before {
       content: '';
@@ -102,12 +129,13 @@
       }
 
       .primary-btn {
-        background-color: var(--color-primary);
-        color: var(--color-light);
-        border: none;
+        // Bright call-to-action: white on the dark hero overlay, with a soft glow.
+        background-color: var(--color-light);
+        color: var(--color-primary);
+        border: 2px solid var(--color-light);
         padding: 0.9rem 2.5rem;
         font-size: 1.1rem;
-        font-weight: 500;
+        font-weight: 700;
         border-radius: var(--border-radius-sm);
         cursor: pointer;
         transition: all var(--transition-medium);
@@ -115,7 +143,7 @@
         overflow: hidden;
         text-transform: uppercase;
         letter-spacing: 1px;
-        box-shadow: 0 4px 15px rgba(26, 32, 44, 0.4);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25), 0 6px 24px rgba(0, 0, 0, 0.45);
 
         &::before {
           content: '';
@@ -129,10 +157,13 @@
           transition: transform var(--transition-medium);
         }
 
-        &:hover {
-          background-color: darken(#3182CEFF, 5%);
+        &:hover,
+        &:focus-visible {
+          background-color: #3182CE;
+          border-color: #3182CE;
+          color: var(--color-light);
           transform: translateY(-3px);
-          box-shadow: 0 6px 20px #3182CE80;
+          box-shadow: 0 0 0 4px rgba(49, 130, 206, 0.45), 0 8px 26px rgba(49, 130, 206, 0.6);
 
           &::before {
             transform: translateX(0);
