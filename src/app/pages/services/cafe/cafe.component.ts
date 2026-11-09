@@ -4,13 +4,12 @@ import { RouterModule } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { MenuItem } from '../../../models/task';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { MenuItemsComponent } from '../../../shared/menu-item/menu-item.component';
 
 @Component({
     selector: 'app-cafe',
     templateUrl: './cafe.component.html',
     styleUrls: ['./cafe.component.scss'],
-    imports: [RouterModule, NzIconModule, MenuItemsComponent],
+    imports: [RouterModule, NzIconModule],
     changeDetection: ChangeDetectionStrategy.Eager,
     animations: [
         trigger('slideIn', [
