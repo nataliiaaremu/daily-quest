@@ -41,7 +41,18 @@
 
   /* Hero Section */
   .about-hero {
-    background-image: url("/assets/images/pillar-pic0.webp");
+    background-image: url("/assets/images/pillar-pic0-1600.webp");
+    background-image: image-set(
+                    url("/assets/images/pillar-pic0-1600.avif") type("image/avif"),
+                    url("/assets/images/pillar-pic0-1600.webp") type("image/webp"));
+
+    @media (max-width: 900px) {
+      background-image: url("/assets/images/pillar-pic0-800.webp");
+      background-image: image-set(
+                      url("/assets/images/pillar-pic0-800.avif") type("image/avif"),
+                      url("/assets/images/pillar-pic0-800.webp") type("image/webp"));
+    }
+
     background-size: cover;
     background-position: center;
     height: 85vh;

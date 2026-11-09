@@ -19,6 +19,8 @@
           (error)="onImageError()">
       } @else {
         <img [src]="image"
+          [attr.loading]="loading"
+          decoding="async"
           [alt]="imageAlt"
           [ngStyle]="{'object-fit': objectFit}"
           class="actual-image"

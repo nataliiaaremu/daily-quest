@@ -40,11 +40,20 @@
       </div>
       <div class="story-content">
         <div class="story-image">
-          <img ngSrc="assets/images/entrance.webp"
-            alt="Acropolis Park Story"
-            loading="lazy"
-            [height]="900"
-            [width]="1600">
+          <picture>
+            <source type="image/avif"
+              sizes="(max-width: 768px) 100vw, 560px"
+              srcset="assets/images/entrance-640.avif 640w, assets/images/entrance-1120.avif 1120w">
+            <source type="image/webp"
+              sizes="(max-width: 768px) 100vw, 560px"
+              srcset="assets/images/entrance-640.webp 640w, assets/images/entrance-1120.webp 1120w">
+            <img src="assets/images/entrance-1120.webp"
+              alt="Acropolis Park Story"
+              width="1120"
+              height="630"
+              loading="lazy"
+              decoding="async">
+          </picture>
         </div>
         <div class="story-text">
           <p>Our Acropolis is a recreational destination located in the heart of Nigeria’s capital city, and a re-

@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
@@ -39,7 +38,6 @@ interface Venue {
     NzCarouselModule,
     ImagePlaceholderComponent,
     NzIconModule,
-    NgOptimizedImage,
     NzTooltipModule,
     TestimonialsComponent
 ],

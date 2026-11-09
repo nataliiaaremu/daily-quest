@@ -168,5 +168,6 @@ export class CafeComponent {
     '/assets/images/cafe-menu-sandwich.webp',
     // '/assets/images/cafe-menu-jellof-rice.png',
   ];
+  imagesAvif: string[] = this.images.map(image => image.replace(/\.webp$/, '.avif'));
 }
 

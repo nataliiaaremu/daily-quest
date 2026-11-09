@@ -5,9 +5,13 @@
 
 /* Hero Section */
 .about-hero {
-  background-image: url("/assets/images/park-aerial-view.webp");
+  // Pre-cropped to the band of the aerial photo that is actually shown.
+  background-image: url("/assets/images/contact-banner.webp");
+  background-image: image-set(
+                  url("/assets/images/contact-banner.avif") type("image/avif"),
+                  url("/assets/images/contact-banner.webp") type("image/webp"));
   background-size: auto;
-  background-position: center top -301px;
+  background-position: center top;
   height: 30vh;
   display: flex;
   align-items: center;

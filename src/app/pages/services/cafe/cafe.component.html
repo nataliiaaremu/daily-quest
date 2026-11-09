@@ -16,7 +16,7 @@
   </section>
 
   <section class="about-section">
-    <h2>About Us</h2>
+    <!-- <h2>About Us</h2> -->
     <p>Tucked into the cultural haven of Acropolis Park, Abuja, the Acropolis Café offers a peaceful getaway
       from Abuja’s bustling streets. Our cozy space brings together rich African coffee, freshly baked pastries, and a
       hint of Greek-inspired charm.
@@ -26,13 +26,23 @@
   </section>
 
   <section class="gallery-section">
-    @for (image of images; track image) {
-      <div class="gallery-image"
-      [style.background-image]="'url(' + image + ')'"></div>
+    @for (image of images; track image; let i = $index) {
+      <div class="gallery-image">
+        <picture>
+          <source type="image/avif"
+            [srcset]="imagesAvif[i]">
+          <img [src]="image"
+            width="600"
+            height="700"
+            loading="lazy"
+            decoding="async"
+            alt="Dish from the Acropolis Café menu">
+        </picture>
+      </div>
     }
   </section>
 
-  <h2>Menu</h2>
+  <!-- <h2>Menu</h2>
 
   <app-menu-items [list]="appetizers"
     headerTitle="Pasta">
@@ -55,7 +65,7 @@
 
   <app-menu-items [list]="sides"
     headerTitle="Sides">
-  </app-menu-items>
+  </app-menu-items> -->
 
   <section class="contacts">
     <h2>Contacts</h2>
