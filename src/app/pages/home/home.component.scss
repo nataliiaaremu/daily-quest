@@ -42,8 +42,8 @@
     background-size: cover;
     background-position: center;
     // Tiny blurred preview (inline, ~370 bytes) shown instantly while the real photo downloads.
-    background-color: #888d76;
-    background-image: url("data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABQBQCdASogABUAPu1qq08ppiOiMBgIATAdiWIAsOwR6BSlX8kLgpnhuPQsEEuqGUQAWAAA/Z1ajxiW/FAoMjGmp0CG/BufgcZ0irdNm75v0HNiY6n61nEsmBP/dkWT+29G8gZIafMVwCdqAnZwsYKKifctshz3DHgnzLVPSqlhGkPeb0x3no6qdG60k9yDgtOQRBeYWJcWji5CIIRt47biVhBhX5htdJL4q8TNZ0wRvLGFjTSGRFuqAn58cKbC2utfpDZlC7lCFgbaN2h7+zwn/ThojGf0fm83nKGo3COsPvgfMmMf0PvPdZziAAAA");
+    background-color: #816955;
+    background-image: url("data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAADwBQCdASogABIAPu1krE+ppSQiMBgIATAdiWQAnTLVPC/FhcnvbWj4viRjTIhU3bJJ+0mp7ic1QAD+lGc2wpFsjiaeeaXSvBoKi16Qvb86zhXIO93tS2TEv7+bTxCuMM/i8Hv1zzbQAZE2kZ35bU2/dpoD6cCOdRfVDYSPPQoy62ZIoIVcoHMSBZDF6ZMkOKvRm4luWz+b0a5g7L9nmdCl4+WzPH+BesT5LNVCJOtgdVscwnDrrqTxPjxQ+Y507M582Y6hG4rsrv0cs8fUMPMywnhoiE8oFAAaAA==");
     height: 95vh;
     display: flex;
     align-items: center;
@@ -65,7 +65,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 45%;
+      object-position: center;
       opacity: 0;
       transition: opacity 0.6s ease-out;
 
