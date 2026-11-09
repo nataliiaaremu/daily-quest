@@ -41,20 +41,24 @@
 
   /* Hero Section */
   .about-hero {
-    background-image: url("/assets/images/pillar-pic0-1600.webp");
+    // Photo on top, a tiny blurred preview underneath: the preview shows while the photo downloads.
+    background-color: #888d76;
+    background-image: url("/assets/images/about-hero-1600.webp"), url("data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABQBQCdASogABUAPu1qq08ppiOiMBgIATAdiWIAsOwR6BSlX8kLgpnhuPQsEEuqGUQAWAAA/Z1ajxiW/FAoMjGmp0CG/BufgcZ0irdNm75v0HNiY6n61nEsmBP/dkWT+29G8gZIafMVwCdqAnZwsYKKifctshz3DHgnzLVPSqlhGkPeb0x3no6qdG60k9yDgtOQRBeYWJcWji5CIIRt47biVhBhX5htdJL4q8TNZ0wRvLGFjTSGRFuqAn58cKbC2utfpDZlC7lCFgbaN2h7+zwn/ThojGf0fm83nKGo3COsPvgfMmMf0PvPdZziAAAA");
     background-image: image-set(
-                    url("/assets/images/pillar-pic0-1600.avif") type("image/avif"),
-                    url("/assets/images/pillar-pic0-1600.webp") type("image/webp"));
+                    url("/assets/images/about-hero-1600.avif") type("image/avif"),
+                    url("/assets/images/about-hero-1600.webp") type("image/webp")),
+                    url("data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABQBQCdASogABUAPu1qq08ppiOiMBgIATAdiWIAsOwR6BSlX8kLgpnhuPQsEEuqGUQAWAAA/Z1ajxiW/FAoMjGmp0CG/BufgcZ0irdNm75v0HNiY6n61nEsmBP/dkWT+29G8gZIafMVwCdqAnZwsYKKifctshz3DHgnzLVPSqlhGkPeb0x3no6qdG60k9yDgtOQRBeYWJcWji5CIIRt47biVhBhX5htdJL4q8TNZ0wRvLGFjTSGRFuqAn58cKbC2utfpDZlC7lCFgbaN2h7+zwn/ThojGf0fm83nKGo3COsPvgfMmMf0PvPdZziAAAA");
 
     @media (max-width: 900px) {
-      background-image: url("/assets/images/pillar-pic0-800.webp");
+      background-image: url("/assets/images/about-hero-1280.webp"), url("data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABQBQCdASogABUAPu1qq08ppiOiMBgIATAdiWIAsOwR6BSlX8kLgpnhuPQsEEuqGUQAWAAA/Z1ajxiW/FAoMjGmp0CG/BufgcZ0irdNm75v0HNiY6n61nEsmBP/dkWT+29G8gZIafMVwCdqAnZwsYKKifctshz3DHgnzLVPSqlhGkPeb0x3no6qdG60k9yDgtOQRBeYWJcWji5CIIRt47biVhBhX5htdJL4q8TNZ0wRvLGFjTSGRFuqAn58cKbC2utfpDZlC7lCFgbaN2h7+zwn/ThojGf0fm83nKGo3COsPvgfMmMf0PvPdZziAAAA");
       background-image: image-set(
-                      url("/assets/images/pillar-pic0-800.avif") type("image/avif"),
-                      url("/assets/images/pillar-pic0-800.webp") type("image/webp"));
+                      url("/assets/images/about-hero-1280.avif") type("image/avif"),
+                      url("/assets/images/about-hero-1280.webp") type("image/webp")),
+                      url("data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABQBQCdASogABUAPu1qq08ppiOiMBgIATAdiWIAsOwR6BSlX8kLgpnhuPQsEEuqGUQAWAAA/Z1ajxiW/FAoMjGmp0CG/BufgcZ0irdNm75v0HNiY6n61nEsmBP/dkWT+29G8gZIafMVwCdqAnZwsYKKifctshz3DHgnzLVPSqlhGkPeb0x3no6qdG60k9yDgtOQRBeYWJcWji5CIIRt47biVhBhX5htdJL4q8TNZ0wRvLGFjTSGRFuqAn58cKbC2utfpDZlC7lCFgbaN2h7+zwn/ThojGf0fm83nKGo3COsPvgfMmMf0PvPdZziAAAA");
     }
 
     background-size: cover;
-    background-position: center;
+    background-position: center 40%;
     height: 85vh;
     display: flex;
     align-items: center;
