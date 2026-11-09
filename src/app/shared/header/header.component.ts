@@ -1,10 +1,9 @@
-import { Component, HostListener, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, inject, NgZone, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { SocialLinksComponent } from '../index';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
-import { PlatformService } from '../../services/platform.service';
 import { bookingLink, notReadyServices, services } from '../../models/constants';
 
 @Component({
@@ -17,18 +16,44 @@ import { bookingLink, notReadyServices, services } from '../../models/constants'
 export class AcropolisHeaderComponent {
   isMobileMenuOpen = signal(false);
   isServicesDropdownOpen = signal(false);
-  isScrolled = signal(false);
 
   // Services submenu items
   services = services;
   notReadyServices = notReadyServices;
   bookingLink = bookingLink;
 
-  private readonly platformService = inject(PlatformService);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly zone = inject(NgZone);
+  private readonly destroyRef = inject(DestroyRef);
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled.set((this.platformService.windowRef as Window)?.scrollY > 50);
+  constructor() {
+    // Scroll distance (px) over which the header fades from transparent to solid.
+    const range = 60;
+
+    afterNextRender(() => {
+      let frame = 0;
+
+      // Writes a 0..1 value to a CSS variable; the stylesheet turns it into
+      // background, shadow and padding. Runs once per animation frame.
+      const update = () => {
+        frame = 0;
+        const progress = Math.min(Math.max(window.scrollY / range, 0), 1);
+        this.host.nativeElement.style.setProperty('--header-progress', progress.toFixed(3));
+      };
+      const onScroll = () => {
+        if (!frame) {
+          frame = requestAnimationFrame(update);
+        }
+      };
+
+      // Outside Angular so scrolling does not trigger change detection for the whole app.
+      this.zone.runOutsideAngular(() => window.addEventListener('scroll', onScroll, {passive: true}));
+      this.destroyRef.onDestroy(() => {
+        window.removeEventListener('scroll', onScroll);
+        cancelAnimationFrame(frame);
+      });
+      update();
+    });
   }
 
   toggleMobileMenu() {
