@@ -129,12 +129,13 @@
       }
 
       .primary-btn {
-        background-color: var(--color-primary);
-        color: var(--color-light);
-        border: none;
+        // Bright call-to-action: white on the dark hero overlay, with a soft glow.
+        background-color: var(--color-light);
+        color: var(--color-primary);
+        border: 2px solid var(--color-light);
         padding: 0.9rem 2.5rem;
         font-size: 1.1rem;
-        font-weight: 500;
+        font-weight: 700;
         border-radius: var(--border-radius-sm);
         cursor: pointer;
         transition: all var(--transition-medium);
@@ -142,7 +143,7 @@
         overflow: hidden;
         text-transform: uppercase;
         letter-spacing: 1px;
-        box-shadow: 0 4px 15px rgba(26, 32, 44, 0.4);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25), 0 6px 24px rgba(0, 0, 0, 0.45);
 
         &::before {
           content: '';
@@ -156,10 +157,13 @@
           transition: transform var(--transition-medium);
         }
 
-        &:hover {
-          background-color: darken(#3182CEFF, 5%);
+        &:hover,
+        &:focus-visible {
+          background-color: #3182CE;
+          border-color: #3182CE;
+          color: var(--color-light);
           transform: translateY(-3px);
-          box-shadow: 0 6px 20px #3182CE80;
+          box-shadow: 0 0 0 4px rgba(49, 130, 206, 0.45), 0 8px 26px rgba(49, 130, 206, 0.6);
 
           &::before {
             transform: translateX(0);
