@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -55,6 +55,8 @@ interface Venue {
 })
 export class HomeComponent {
   bookingLink = bookingLink;
+  // Flips to true when the hero photo has loaded, to fade it in over the placeholder.
+  heroLoaded = signal(false);
   faqs: FAQ[] = [
     {
       question: 'What types of events can be hosted at Acropolis Park?',

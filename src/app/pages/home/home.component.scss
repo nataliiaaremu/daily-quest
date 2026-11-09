@@ -41,7 +41,9 @@
     //background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/acropolis/hero.jpg');
     background-size: cover;
     background-position: center;
-    background-image: url("/assets/images/acropolis-home-hero.webp");
+    // Tiny blurred preview (inline, ~370 bytes) shown instantly while the real photo downloads.
+    background-color: #888d76;
+    background-image: url("data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABQBQCdASogABUAPu1qq08ppiOiMBgIATAdiWIAsOwR6BSlX8kLgpnhuPQsEEuqGUQAWAAA/Z1ajxiW/FAoMjGmp0CG/BufgcZ0irdNm75v0HNiY6n61nEsmBP/dkWT+29G8gZIafMVwCdqAnZwsYKKifctshz3DHgnzLVPSqlhGkPeb0x3no6qdG60k9yDgtOQRBeYWJcWji5CIIRt47biVhBhX5htdJL4q8TNZ0wRvLGFjTSGRFuqAn58cKbC2utfpDZlC7lCFgbaN2h7+zwn/ThojGf0fm83nKGo3COsPvgfMmMf0PvPdZziAAAA");
     height: 95vh;
     display: flex;
     align-items: center;
@@ -52,6 +54,31 @@
     margin-top: -80px; // Offset the header padding
     position: relative;
     overflow: hidden;
+
+    .hero-picture {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+
+      &.loaded {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-image {
+        transition: none;
+      }
+    }
 
     &::before {
       content: '';
